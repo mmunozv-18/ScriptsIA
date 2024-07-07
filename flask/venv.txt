@@ -1,0 +1,11 @@
+Crear Ambiente virtual
+    python -m venv venv
+
+Activar Ambiente virtual
+    venv\Scripts\activate
+
+Instalar paquetes en el entorno virtual
+    pip install nombre_del_paquete    
+
+Entorno virtual activo
+.\venv\Scripts\Activate.ps1    

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Inventario</h1>
+        <form action="/add" method="post" class="mb-4">
+            <label for="codigo" class="mr-2">Código:</label>
+            <input type="text" id="codigo" name="codigo" required class="form-control mr-2">
+            <label for="material" class="mr-2">Material:</label>
+            <input type="text" id="material" name="material" required class="form-control mr-2">
+            <label for="unidad" class="mr-2">Unidad:</label>
+            <input type="text" id="unidad" name="unidad" required class="form-control mr-2">
+            <label for="cantidad" class="mr-2">Cantidad:</label>
+            <input type="number" id="cantidad" name="cantidad" required class="form-control mr-2">
+            <label for="precio" class="mr-2">Precio:</label>
+            <input type="number" step="0.01" id="precio" name="precio" required class="form-control mr-2">
+            <hr>
+            <button type="submit" class="btn btn-primary">Agregar</button>
+        </form>
+        <h2>Registros Ingresados</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Material</th>
+                    <th>Unidad</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Total</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <td>{{ item.codigo }}</td>
+                    <td>{{ item.material }}</td>
+                    <td>{{ item.unidad }}</td>
+                    <td>{{ item.cantidad }}</td>
+                    <td>{{ item.precio }}</td>
+                    <td>{{ item.total }}</td>
+                    <td>
+                        <a href="/edit/{{ item.id }}" class="btn btn-warning btn-sm">Editar</a>
+                        <a href="/delete/{{ item.id }}" class="btn btn-danger btn-sm">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

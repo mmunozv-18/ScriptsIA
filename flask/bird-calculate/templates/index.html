@@ -1,0 +1,33 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Diferencia entre Fechas</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Calculadora de Diferencia entre Fechas</h1>
+    {% if error %}
+      <p class="error">{{ error }}</p>
+    {% endif %}
+    <form method="post" action="{{ url_for('index') }}">
+      <div class="input-container">
+        <label for="date1">Fecha de Nacimiento 1:</label>
+        <input type="date" id="date1" name="date1" value="{{ date1 }}" required>
+      </div>
+      <div class="input-container">
+        <label for="date2">Fecha de Nacimiento 2:</label>
+        <input type="date" id="date2" name="date2" value="{{ date2 }}" required>
+      </div>
+      <button type="submit" class="calculate-button">Calcular Diferencia</button>
+    </form>
+    {% if difference is not none %}
+      <p class="result">La diferencia entre las dos fechas es de {{ difference }} días.</p>
+    {% endif %}
+  </div>
+</body>
+</html>

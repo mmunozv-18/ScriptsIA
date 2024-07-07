@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Item</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Edición de: {{ item.material }}</h1>
+        <form action="/edit/{{ item.id }}" method="post" class="mb-4">
+            <label for="codigo" class="mr-2">Código:</label>
+            <input type="text" id="codigo" name="codigo" value="{{ item.codigo }}" required class="form-control mr-2">
+            <label for="material" class="mr-2">Material:</label>
+            <input type="text" id="material" name="material" value="{{ item.material }}" required class="form-control mr-2">
+            <label for="unidad" class="mr-2">Unidad:</label>
+            <input type="text" id="unidad" name="unidad" value="{{ item.unidad }}" required class="form-control mr-2">
+            <label for="cantidad" class="mr-2">Cantidad:</label>
+            <input type="number" id="cantidad" name="cantidad" value="{{ item.cantidad }}" required class="form-control mr-2">
+            <label for="precio" class="mr-2">Precio:</label>
+            <input type="number" step="0.01" id="precio" name="precio" value="{{ item.precio }}" required class="form-control mr-2">
+            <hr>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+        <a href="/" class="btn btn-secondary">Volver</a>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
