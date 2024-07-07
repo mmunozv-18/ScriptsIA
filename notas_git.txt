@@ -1,0 +1,9 @@
+para ver el estatus
+    git status
+
+para agregar lo nuevo
+    git add .
+    git commit -m "se agrega lo nuevo"
+    git push -u origin main
+
+    
