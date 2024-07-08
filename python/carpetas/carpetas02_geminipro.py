@@ -3,7 +3,7 @@ import tkinter as tk
 from tkinter import filedialog
 from tkinter import messagebox
 
-def crear_lista_archivos_ruta(ruta, nivel=0, ignorar_archivos=['Desktop.ini', 'plot.file', 'listado.md']):
+def crear_lista_archivos_ruta(ruta, nivel=0, ignorar_archivos=['desktop.ini', 'plot.log', 'listado.md']):
     """Crea una lista recursiva de archivos y directorios, ignorando los especificados.
 
     Args:
@@ -18,7 +18,7 @@ def crear_lista_archivos_ruta(ruta, nivel=0, ignorar_archivos=['Desktop.ini', 'p
     lista_archivos = []
     for archivo in os.listdir(ruta):
         # Ignorar archivos que comienzan con '∼' o están en la lista 'ignorar_archivos'
-        if archivo.startswith("∼") or archivo in ignorar_archivos:
+        if archivo.startswith("~") or archivo in ignorar_archivos:
             continue
         archivo_ruta = os.path.join(ruta, archivo)
         if os.path.isdir(archivo_ruta):
